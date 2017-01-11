@@ -193,7 +193,7 @@
 				TargetAttributes = {
 					69893C031E25873200093A87 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 6K8SV2N4VK;
+						DevelopmentTeam = QR762NBDVF;
 						ProvisioningStyle = Automatic;
 					};
 					69893C171E25873200093A87 = {
@@ -415,10 +415,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6K8SV2N4VK;
+				DEVELOPMENT_TEAM = QR762NBDVF;
 				INFOPLIST_FILE = Referendapartij/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.referendapartij.app.Referendapartij;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.referendapartij.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -428,10 +429,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6K8SV2N4VK;
+				DEVELOPMENT_TEAM = QR762NBDVF;
 				INFOPLIST_FILE = Referendapartij/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.referendapartij.app.Referendapartij;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.referendapartij.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
