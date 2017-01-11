@@ -11,9 +11,10 @@ import WebKit
 
 class ViewController: UIViewController, WKNavigationDelegate {
 
+    let DOMAIN = "referendapartij.nl"
     var webView: WKWebView!
     var request: URLRequest?
-    var poolURL: URL = URL(string: "http://signup.referendapartij.nl/")!
+    var poolURL: URL = URL(string: "http://signup.referendapartij.nl")!
     
     
     override func viewDidLoad() {
@@ -73,28 +74,29 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        let request = navigationAction.request
-        let path = request.url?.absoluteString
-        
+        var navigationRequest = navigationAction.request
+        let path = navigationRequest.url?.absoluteString
         guard let thePath = path else {
             decisionHandler(.cancel)
             return
         }
         print(thePath)
         switch thePath {
-        case "about:blank":
-            decisionHandler(.cancel)
-        case let p where p.contains(poolURL.absoluteString):
+        case let p where p.contains(DOMAIN):
             decisionHandler(.allow)
+                
         case let p where p.contains("accounts.google.com"):
-            let url = URL(string: p)!
+            decisionHandler(.allow)
+        default:
+            guard let url = navigationRequest.url else {
+                decisionHandler(.cancel)
+                return
+            }
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(url, options: [String: Any](), completionHandler: nil)
             } else {
                 UIApplication.shared.openURL(url)
             }
-            decisionHandler(.allow)
-        default:
             decisionHandler(.cancel)
         }
         
@@ -110,6 +112,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 //        }
 //        
 //        decisionHandler(.allow)
+//        webView.reload()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
